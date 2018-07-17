@@ -1,0 +1,67 @@
+/* css variables */
+:root {
+  --main-color: #eee;
+  --action-color: #75DDFF;
+}
+
+/* container styles */
+
+.container {
+  margin: 10px;
+}
+
+/* Page 1 (login page) */
+
+.login-container {
+  width: 280px;
+  margin: 20% auto;
+}
+
+.username, .password {
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+}
+
+.btn {
+  background-color: var(--action-color);
+}
+
+.btn.login {
+  height: 50px;
+}
+
+/* Page 2 and 3 (posts and post pages) */
+
+.post {
+  margin: 70px 0;
+}
+
+.post-image {
+  height: 100px;
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+}
+
+.post-heading {
+  height: 30px;
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+}
+
+.post-content-line {
+  height: 10px;
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+}
+
+.post-read-more {
+  height: 10px;
+  width: 150px;
+}
+
+@media (min-width: 700px) {
+  .container {
+    margin: 10px 20%;
+  }
+}

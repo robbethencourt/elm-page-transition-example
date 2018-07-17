@@ -1,8 +1,8 @@
-module Page2 exposing (..)
+module Pages.Page3 exposing (..)
 
 import Html exposing (Html, div, text)
 
 
 view : Html msg
 view =
-    div [] [ text "Page 2" ]
+    div [] [ text "Page 3" ]
