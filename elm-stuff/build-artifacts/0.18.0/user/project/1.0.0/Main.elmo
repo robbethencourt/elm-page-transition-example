@@ -1,14 +1,32 @@
 var _user$project$Main$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$none;
 };
+var _user$project$Main$init = {
+	ctor: '_Tuple2',
+	_0: _user$project$Route$Page1(_user$project$Route$Show),
+	_1: _elm_lang$core$Platform_Cmd$none
+};
+var _user$project$Main$SetPage = function (a) {
+	return {ctor: 'SetPage', _0: a};
+};
 var _user$project$Main$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		return {ctor: '_Tuple2', _0: _p0._0, _1: _elm_lang$core$Platform_Cmd$none};
+		if (_p0.ctor === 'TransitionPage') {
+			return {
+				ctor: '_Tuple2',
+				_0: _user$project$Route$updatePageTransition(model),
+				_1: A2(
+					_user$project$Route$transitionFromPage,
+					model,
+					_user$project$Main$SetPage(_p0._0))
+			};
+		} else {
+			return {ctor: '_Tuple2', _0: _p0._0, _1: _elm_lang$core$Platform_Cmd$none};
+		}
 	});
-var _user$project$Main$init = {ctor: '_Tuple2', _0: _user$project$Route$Page1, _1: _elm_lang$core$Platform_Cmd$none};
-var _user$project$Main$ChangePage = function (a) {
-	return {ctor: 'ChangePage', _0: a};
+var _user$project$Main$TransitionPage = function (a) {
+	return {ctor: 'TransitionPage', _0: a};
 };
 var _user$project$Main$view = function (model) {
 	return A2(
@@ -24,11 +42,11 @@ var _user$project$Main$view = function (model) {
 				var _p1 = model;
 				switch (_p1.ctor) {
 					case 'Page1':
-						return _user$project$Pages_Page1$view(_user$project$Main$ChangePage);
+						return A2(_user$project$Pages_Page1$view, _p1._0, _user$project$Main$TransitionPage);
 					case 'Page2':
-						return _user$project$Pages_Page2$view(_user$project$Main$ChangePage);
+						return A2(_user$project$Pages_Page2$view, _p1._0, _user$project$Main$TransitionPage);
 					default:
-						return _user$project$Pages_Page3$view;
+						return _user$project$Pages_Page3$view(_p1._0);
 				}
 			}(),
 			_1: {ctor: '[]'}

@@ -1,3 +1,64 @@
-var _user$project$Route$Page3 = {ctor: 'Page3'};
-var _user$project$Route$Page2 = {ctor: 'Page2'};
-var _user$project$Route$Page1 = {ctor: 'Page1'};
+var _user$project$Route$pageTransitionTime = function (page) {
+	var _p0 = page;
+	switch (_p0.ctor) {
+		case 'Page1':
+			return 250;
+		case 'Page2':
+			return 250;
+		default:
+			return 250;
+	}
+};
+var _user$project$Route$transitionFromPage = F2(
+	function (page, msg) {
+		var time = function (_p1) {
+			return A2(
+				F2(
+					function (x, y) {
+						return x * y;
+					}),
+				_elm_lang$core$Time$millisecond,
+				_user$project$Route$pageTransitionTime(_p1));
+		}(page);
+		return A2(
+			_elm_lang$core$Task$perform,
+			_elm_lang$core$Basics$identity,
+			A2(
+				_elm_lang$core$Task$andThen,
+				_elm_lang$core$Basics$always(
+					_elm_lang$core$Task$succeed(msg)),
+				_elm_lang$core$Process$sleep(time)));
+	});
+var _user$project$Route$Page3 = function (a) {
+	return {ctor: 'Page3', _0: a};
+};
+var _user$project$Route$Page2 = function (a) {
+	return {ctor: 'Page2', _0: a};
+};
+var _user$project$Route$Page1 = function (a) {
+	return {ctor: 'Page1', _0: a};
+};
+var _user$project$Route$Remove = {ctor: 'Remove'};
+var _user$project$Route$Show = {ctor: 'Show'};
+var _user$project$Route$toggleTransition = function (transition) {
+	var _p2 = transition;
+	if (_p2.ctor === 'Show') {
+		return _user$project$Route$Remove;
+	} else {
+		return _user$project$Route$Show;
+	}
+};
+var _user$project$Route$updatePageTransition = function (page) {
+	var _p3 = page;
+	switch (_p3.ctor) {
+		case 'Page1':
+			return _user$project$Route$Page1(
+				_user$project$Route$toggleTransition(_p3._0));
+		case 'Page2':
+			return _user$project$Route$Page2(
+				_user$project$Route$toggleTransition(_p3._0));
+		default:
+			return _user$project$Route$Page3(
+				_user$project$Route$toggleTransition(_p3._0));
+	}
+};

@@ -17,7 +17,7 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init =
-    ( Route.Page1, Cmd.none )
+    ( Route.Page1 Route.Show, Cmd.none )
 
 
 
@@ -25,7 +25,8 @@ init =
 
 
 type Msg
-    = ChangePage Route.Page
+    = TransitionPage Route.Page
+    | SetPage Route.Page
 
 
 
@@ -35,7 +36,10 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        ChangePage page ->
+        TransitionPage page ->
+            ( Route.updatePageTransition model, Route.transitionFromPage model <| SetPage page )
+
+        SetPage page ->
             ( page, Cmd.none )
 
 
@@ -47,14 +51,14 @@ view : Model -> Html Msg
 view model =
     div [ class "container" ]
         [ case model of
-            Route.Page1 ->
-                Page1.view ChangePage
+            Route.Page1 transition ->
+                Page1.view transition TransitionPage
 
-            Route.Page2 ->
-                Page2.view ChangePage
+            Route.Page2 transition ->
+                Page2.view transition TransitionPage
 
-            Route.Page3 ->
-                Page3.view
+            Route.Page3 transition ->
+                Page3.view transition
         ]
 
 
