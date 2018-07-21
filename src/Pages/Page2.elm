@@ -1,9 +1,12 @@
-module Pages.Page2 exposing (..)
+module Pages.Page2 exposing (view)
 
-import Html exposing (Html, div, text)
+import Html exposing (Html, div, text, span)
 import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
 import Route
+
+
+-- public
 
 
 view : Route.Transition -> (Route.Page -> msg) -> Html msg
@@ -12,8 +15,29 @@ view transition transitionPage =
         transitionClassName =
             transition |> toString |> String.toLower
     in
-        div [ class <| "posts " ++ transitionClassName ]
-            (List.map (post transitionPage) (List.range 1 5))
+        div [ class <| "page-container " ++ transitionClassName ]
+            [ header transitionPage
+            , div [ class "posts" ]
+                (List.map (post transitionPage) (List.range 1 5))
+            ]
+
+
+
+-- private
+
+
+header : (Route.Page -> msg) -> Html msg
+header transitionPage =
+    div [ class "header" ]
+        [ span
+            [ class "user-profile" ]
+            []
+        , span
+            [ class "btn logout"
+            , onClick <| transitionPage <| Route.Page1 Route.Show
+            ]
+            []
+        ]
 
 
 post : (Route.Page -> msg) -> Int -> Html msg

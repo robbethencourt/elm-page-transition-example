@@ -51,7 +51,7 @@ pageTransitionTime : Page -> Float
 pageTransitionTime page =
     case page of
         Page1 transition ->
-            250
+            650
 
         Page2 transition ->
             250

@@ -1,13 +1,20 @@
-module Pages.Page3 exposing (..)
+module Pages.Page3 exposing (view)
 
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (class)
 import Route
 
 
+-- public
+
+
 view : Route.Transition -> Html msg
 view transition =
     post transition
+
+
+
+-- private
 
 
 post : Route.Transition -> Html msg

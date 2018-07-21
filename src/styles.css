@@ -31,7 +31,122 @@
   height: 50px;
 }
 
+/* Page 1 animations */
+
+/* Show Animations (Page 1) */
+
+.login-container.show {
+  animation-name: show-login;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-login {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Remove Animations (Page 1) */
+
+.login-container.remove .username {
+  animation-name: remove-username;
+  animation-duration: 0.65s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-username {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  60% {
+    transform: translate(0px, 70px);
+    opacity: 1;
+  }
+  61% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.login-container.remove .password {
+  animation-name: remove-password;
+  animation-duration: 0.65s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-password {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  61% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.login-container.remove .login {
+  animation-name: remove-login;
+  animation-duration: 0.65s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-login {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  60% {
+    transform: translate(0px, -70px);
+  }
+  61% {
+    transform: translate(0px, -70px);
+    opacity: 1;
+  }
+  95% {
+    transform: translate(0px, -70px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px, -70px);
+    opacity: 0;
+  }
+}
+
 /* Page 2 and 3 (posts and post pages) */
+
+.page-container {
+  padding-top: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-profile {
+  display: inline-block;
+  height: 25px;
+  width: 150px;
+  background-color: var(--main-color);
+}
+
+.logout {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  background-color: var(--action-color);
+}
 
 .post {
   margin: 70px 0;

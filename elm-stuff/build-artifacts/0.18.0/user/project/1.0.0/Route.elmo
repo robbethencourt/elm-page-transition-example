@@ -2,7 +2,7 @@ var _user$project$Route$pageTransitionTime = function (page) {
 	var _p0 = page;
 	switch (_p0.ctor) {
 		case 'Page1':
-			return 250;
+			return 650;
 		case 'Page2':
 			return 250;
 		default:

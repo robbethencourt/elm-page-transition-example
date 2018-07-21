@@ -1,4 +1,4 @@
-module Pages.Page1 exposing (..)
+module Pages.Page1 exposing (view)
 
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (class)
