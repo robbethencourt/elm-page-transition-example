@@ -129,6 +129,8 @@
   padding-top: 20px;
 }
 
+/* header styles */
+
 .header {
   display: flex;
   justify-content: flex-end;
@@ -146,7 +148,15 @@
   height: 25px;
   width: 25px;
   background-color: var(--action-color);
+  transition: transform 0.25s ease;
+  transform-origin: top right;
 }
+
+.logout:hover, .logout:focus {
+  transform: scaleX(2);
+}
+
+/* post styles */
 
 .post {
   margin: 70px 0;
