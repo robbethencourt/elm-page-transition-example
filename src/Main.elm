@@ -58,7 +58,7 @@ view model =
                 Page2.view transition TransitionPage
 
             Route.Page3 transition ->
-                Page3.view transition
+                Page3.view transition TransitionPage
         ]
 
 
