@@ -1,7 +1,6 @@
 module Main exposing (..)
 
 import Html exposing (Html, div, text, program)
-import Html.Attributes exposing (class)
 import Route
 import Pages.Page1 as Page1
 import Pages.Page2 as Page2
@@ -17,7 +16,7 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init =
-    ( Route.Page1 Route.Show, Cmd.none )
+    ( Route.Page2 Route.Show, Cmd.none )
 
 
 
@@ -49,7 +48,7 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div [ class "container" ]
+    div []
         [ case model of
             Route.Page1 transition ->
                 Page1.view transition TransitionPage

@@ -2,12 +2,13 @@
 :root {
   --main-color: #eee;
   --action-color: #75DDFF;
+  --light-color: #fff;
 }
 
-/* container styles */
+/* css reset */
 
-.container {
-  margin: 10px;
+body {
+  margin: 0;
 }
 
 /* Page 1 (login page) */
@@ -125,22 +126,12 @@
 
 /* Page 2 and 3 (posts and post pages) */
 
-.page-container {
-  padding-top: 20px;
-}
-
 /* header styles */
 
 .header {
   display: flex;
   justify-content: flex-end;
-}
-
-.user-profile {
-  display: inline-block;
-  height: 25px;
-  width: 150px;
-  background-color: var(--main-color);
+  padding: 20px;
 }
 
 .logout {
@@ -156,10 +147,66 @@
   transform: scaleX(2);
 }
 
+/* profile styles */
+
+.profile {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--main-color);
+}
+
+.profile > .avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+  border-radius: 50px;
+  background-color: var(--light-color);
+}
+
+.profile > .username {
+  height: 10px;
+  width: 200px;
+  background-color: var(--light-color);
+}
+
+.profile-nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bucket {
+  width: 20%;
+  height: 60px;
+  padding: 20px 2.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bucket > .heading {
+  width: 70px;
+  height: 15px;
+  margin-bottom: 20px;
+  background-color: var(--main-color);
+}
+
+.bucket > .content {
+  width: 50px;
+  height: 10px;
+  background-color: var(--main-color);
+}
+
+.btn.content {
+  background-color: var(--action-color);
+}
+
 /* post styles */
 
 .post {
-  margin: 70px 0;
+  margin: 0 0 70px 0;
 }
 
 .post-image {
@@ -190,7 +237,16 @@
 }
 
 @media (min-width: 700px) {
-  .container {
+  .header {
+    width: 60%;
+    padding: 30px 20%;
+  }
+  .profile-nav {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .posts {
     margin: 10px 20%;
   }
 }

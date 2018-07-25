@@ -3,7 +3,7 @@ var _user$project$Main$subscriptions = function (model) {
 };
 var _user$project$Main$init = {
 	ctor: '_Tuple2',
-	_0: _user$project$Route$Page1(_user$project$Route$Show),
+	_0: _user$project$Route$Page2(_user$project$Route$Show),
 	_1: _elm_lang$core$Platform_Cmd$none
 };
 var _user$project$Main$SetPage = function (a) {
@@ -31,11 +31,7 @@ var _user$project$Main$TransitionPage = function (a) {
 var _user$project$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('container'),
-			_1: {ctor: '[]'}
-		},
+		{ctor: '[]'},
 		{
 			ctor: '::',
 			_0: function () {

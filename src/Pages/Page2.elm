@@ -17,8 +17,8 @@ view transition transitionPage =
     in
         div [ class <| "page-container " ++ transitionClassName ]
             [ header transitionPage
-            , div [ class "posts" ]
-                (List.map (post transitionPage) (List.range 1 5))
+            , profile
+            , profileNav transitionPage
             ]
 
 
@@ -30,9 +30,6 @@ header : (Route.Page -> msg) -> Html msg
 header transitionPage =
     div [ class "header" ]
         [ span
-            [ class "user-profile" ]
-            []
-        , span
             [ class "btn logout"
             , onClick <| transitionPage <| Route.Page1 Route.Show
             ]
@@ -40,17 +37,31 @@ header transitionPage =
         ]
 
 
-post : (Route.Page -> msg) -> Int -> Html msg
-post transitionPage _ =
-    div [ class "post" ]
-        [ div [ class "post-image" ] []
-        , div [ class "post-heading" ] []
-        , div [ class "post-content" ]
-            (List.map postContentLine (List.range 1 5))
-        , div [ class "btn post-read-more", onClick <| transitionPage <| Route.Page3 Route.Show ] []
+profile : Html msg
+profile =
+    div [ class "profile" ]
+        [ div [ class "avatar" ] []
+        , div [ class "username" ] []
         ]
 
 
-postContentLine : Int -> Html msg
-postContentLine _ =
-    div [ class "post-content-line" ] []
+profileNav : (Route.Page -> msg) -> Html msg
+profileNav transitionPage =
+    div [ class "profile-nav" ]
+        [ div [ class "bucket" ]
+            [ div [ class "heading" ] []
+            , div [ class "content" ] []
+            ]
+        , div [ class "bucket" ]
+            [ div [ class "heading" ] []
+            , div [ class "btn content", onClick <| transitionPage <| Route.Page3 Route.Show ] []
+            ]
+        , div [ class "bucket" ]
+            [ div [ class "heading" ] []
+            , div [ class "content" ] []
+            ]
+        , div [ class "bucket" ]
+            [ div [ class "heading" ] []
+            , div [ class "content" ] []
+            ]
+        ]
