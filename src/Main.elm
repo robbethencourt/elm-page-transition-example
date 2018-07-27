@@ -16,7 +16,7 @@ type alias Model =
 
 init : ( Model, Cmd Msg )
 init =
-    ( Route.Page2 Route.Show, Cmd.none )
+    ( Route.Page1 Route.Show, Cmd.none )
 
 
 

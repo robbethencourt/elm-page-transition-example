@@ -1,0 +1,48 @@
+/* Page 3 styles (posts page) */
+
+/* post styles */
+
+.post {
+  margin: 0 0 70px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.post > .avatar {
+  width: 50px;
+  height: 50px;
+  margin-top: 0;
+  margin-right: 20px;
+  margin-left: 1em;
+  border-radius: 5px;
+  background-color: var(--content-color);
+}
+
+.post-content {
+  margin-right: 1em;
+  flex-grow: 4;
+}
+
+.post-content > .image {
+  height: 200px;
+  margin-bottom: 20px;
+  background-color: var(--content-color);
+}
+
+.content-line {
+  height: 10px;
+  margin-bottom: 20px;
+  background-color: var(--content-color);
+}
+
+/* media queries */
+
+@media (min-width: 700px) {
+  .post {
+    margin-right: 35%;
+    margin-left: 35%;
+  }
+  .post-content {
+    margin-right: 0;
+  }
+}

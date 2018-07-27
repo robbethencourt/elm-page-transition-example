@@ -20,7 +20,7 @@ view transition transitionPage =
             , post 3
             , postWithImage
             , post 2
-            , post 5
+            , post 4
             ]
 
 

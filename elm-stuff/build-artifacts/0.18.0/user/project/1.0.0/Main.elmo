@@ -3,7 +3,7 @@ var _user$project$Main$subscriptions = function (model) {
 };
 var _user$project$Main$init = {
 	ctor: '_Tuple2',
-	_0: _user$project$Route$Page2(_user$project$Route$Show),
+	_0: _user$project$Route$Page1(_user$project$Route$Show),
 	_1: _elm_lang$core$Platform_Cmd$none
 };
 var _user$project$Main$SetPage = function (a) {

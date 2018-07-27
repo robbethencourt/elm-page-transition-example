@@ -2,7 +2,7 @@
 
 // Require index.html so it gets copied to dist
 require("./index.html");
-import "./styles.css";
+import "./Styles/styles.css";
 
 var Elm = require("./Main.elm");
 var mountNode = document.getElementById("main");
