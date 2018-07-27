@@ -17,7 +17,10 @@ view transition transitionPage =
     in
         div [ class <| "page-container " ++ transitionClassName ]
             [ header transitionPage
-            , post
+            , post 3
+            , postWithImage
+            , post 2
+            , post 5
             ]
 
 
@@ -29,9 +32,6 @@ header : (Route.Page -> msg) -> Html msg
 header transitionPage =
     div [ class "header" ]
         [ span
-            [ class "user-profile" ]
-            []
-        , span
             [ class "btn logout"
             , onClick <| transitionPage <| Route.Page1 Route.Show
             ]
@@ -39,20 +39,31 @@ header transitionPage =
         ]
 
 
-post : Html msg
-post =
+post : Int -> Html msg
+post endLine =
     div [ class <| "post" ]
-        [ div [ class "post-image" ] []
-        , div [ class "post-heading" ] []
+        [ div [ class "avatar" ] []
         , div [ class "post-content" ]
-            (List.map postContentLine (List.range 1 5))
-        , div [ class "post-content" ]
-            (List.map postContentLine (List.range 1 2))
-        , div [ class "post-content" ]
-            (List.map postContentLine (List.range 1 7))
+            [ div [ class "content-container" ]
+                (List.map contentLine (List.range 1 endLine))
+            ]
         ]
 
 
-postContentLine : Int -> Html msg
-postContentLine _ =
-    div [ class "post-content-line" ] []
+postWithImage : Html msg
+postWithImage =
+    div [ class <| "post" ]
+        [ div [ class "avatar" ] []
+        , div [ class "post-content" ]
+            [ div [ class "content-container" ]
+                (List.map contentLine (List.range 1 1))
+            , div [ class "image" ] []
+            , div [ class "content-container" ]
+                (List.map contentLine (List.range 1 2))
+            ]
+        ]
+
+
+contentLine : Int -> Html msg
+contentLine _ =
+    div [ class "content-line" ] []
