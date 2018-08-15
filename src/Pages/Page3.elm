@@ -15,7 +15,7 @@ view transition transitionPage =
         transitionClassName =
             transition |> toString |> String.toLower
     in
-        div [ class <| "page-container " ++ transitionClassName ]
+        div [ class <| "posts-page " ++ transitionClassName ]
             [ header transitionPage
             , post 3
             , postWithImage

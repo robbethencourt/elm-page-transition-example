@@ -35,6 +35,40 @@
   background-color: var(--content-color);
 }
 
+/* Show Animations (Page 3) */
+
+.posts-page.show .post, .posts-page.show {
+  animation-name: show-posts-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-posts-page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Remove Animations (Page 3) */
+
+.posts-page.remove .post, .posts-page.remove {
+  animation-name: remove-post-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-post-page {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* media queries */
 
 @media (min-width: 700px) {

@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: var(--content-color);
+  opacity: 0; /* for animation in purposes */
 }
 
 .profile > .avatar {
@@ -27,6 +28,7 @@
   display: flex;
   flex-wrap: wrap;
   padding-left: 1em;
+  opacity: 0; /* for animation in purposes */
 }
 
 .bucket {
@@ -53,6 +55,40 @@
 
 .btn.content {
   background-color: var(--action-color);
+}
+
+/* Show Animations (Page 2) */
+
+.profile-page.show .profile, .profile-page.show .profile-nav {
+  animation-name: show-profile-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-profile-page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Remove Animations (Page 2) */
+
+.profile-page.remove .profile, .profile-page.remove .profile-nav {
+  animation-name: remove-profile-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-profile-page {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 /* media queries */

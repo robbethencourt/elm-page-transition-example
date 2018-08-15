@@ -15,7 +15,7 @@ view transition transitionPage =
         transitionClassName =
             transition |> toString |> String.toLower
     in
-        div [ class <| "page-container " ++ transitionClassName ]
+        div [ class <| "profile-page " ++ transitionClassName ]
             [ header transitionPage
             , profile
             , profileNav transitionPage
