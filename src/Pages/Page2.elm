@@ -54,7 +54,11 @@ profileNav transitionPage =
             ]
         , div [ class "bucket" ]
             [ div [ class "heading" ] []
-            , div [ class "btn content", onClick <| transitionPage <| Route.Page3 Route.Show ] []
+            , div
+                [ class "btn content"
+                , onClick <| transitionPage <| Route.Page3 Route.Show
+                ]
+                []
             ]
         , div [ class "bucket" ]
             [ div [ class "heading" ] []

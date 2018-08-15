@@ -1,4 +1,10 @@
-module Route exposing (Page(..), Transition(..), transitionFromPage, updatePageTransition)
+module Route
+    exposing
+        ( Page(..)
+        , Transition(..)
+        , transitionFromPage
+        , updatePageTransition
+        )
 
 import Process
 import Task

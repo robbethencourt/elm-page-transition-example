@@ -15,5 +15,9 @@ view transition transitionPage =
         div [ class <| "login-container " ++ transitionClassName ]
             [ div [ class "username" ] []
             , div [ class "password" ] []
-            , div [ class "btn login", onClick <| transitionPage <| Route.Page2 Route.Show ] []
+            , div
+                [ class "btn login"
+                , onClick <| transitionPage <| Route.Page2 Route.Show
+                ]
+                []
             ]

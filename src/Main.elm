@@ -36,7 +36,9 @@ update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         TransitionPage page ->
-            ( Route.updatePageTransition model, Route.transitionFromPage model <| SetPage page )
+            ( Route.updatePageTransition model
+            , Route.transitionFromPage model <| SetPage page
+            )
 
         SetPage page ->
             ( page, Cmd.none )
