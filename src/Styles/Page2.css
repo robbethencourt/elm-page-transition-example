@@ -1,0 +1,103 @@
+/* Page 2 styles (profile page) */
+
+.profile {
+  height: 260px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--content-color);
+  opacity: 0; /* for animation in purposes */
+}
+
+.profile > .avatar {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 30px;
+  border-radius: 50px;
+  background-color: var(--light-color);
+}
+
+.profile > .username {
+  height: 10px;
+  width: 200px;
+  background-color: var(--light-color);
+}
+
+.profile-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 1em;
+  opacity: 0; /* for animation in purposes */
+}
+
+.bucket {
+  width: 22.5%;
+  height: 60px;
+  padding: 20px 2.5% 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bucket > .heading {
+  width: 70px;
+  height: 15px;
+  margin-bottom: 20px;
+  background-color: var(--content-color);
+}
+
+.bucket > .content {
+  width: 50px;
+  height: 10px;
+  background-color: var(--content-color);
+}
+
+.btn.content {
+  background-color: var(--action-color);
+}
+
+/* Show Animations (Page 2) */
+
+.profile-page.show .profile, .profile-page.show .profile-nav {
+  animation-name: show-profile-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-profile-page {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Remove Animations (Page 2) */
+
+.profile-page.remove .profile, .profile-page.remove .profile-nav {
+  animation-name: remove-profile-page;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes remove-profile-page {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* media queries */
+
+@media (min-width: 700px) {
+  .profile-nav {
+    width: 35%;
+    margin-right: 35%;
+    margin-left: 35%;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "elm-page-transition-example",
+  "version": "1.0.0",
+  "description": "example elm app for page transitions with css",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack-dev-server --port 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url":
+      "git+https://github.com/robbethencourt/elm-page-transition-example.git"
+  },
+  "author": "rob bethencourt",
+  "license": "ISC",
+  "bugs": {
+    "url":
+      "https://github.com/robbethencourt/elm-page-transition-example/issues"
+  },
+  "homepage":
+    "https://github.com/robbethencourt/elm-page-transition-example#readme",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "elm-webpack-loader": "^4.5.0",
+    "file-loader": "^1.1.11",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

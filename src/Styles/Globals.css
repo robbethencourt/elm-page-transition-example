@@ -1,0 +1,41 @@
+/* css variables */
+:root {
+  --content-color: #eee;
+  --action-color: #75DDFF;
+  --light-color: #fff;
+}
+
+/* css reset */
+
+body {
+  margin: 0;
+}
+
+/* header styles */
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 1em;
+}
+
+.logout {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  background-color: var(--action-color);
+  transition: transform 0.25s ease;
+  transform-origin: top right;
+}
+
+.logout:hover, .logout:focus {
+  transform: scaleX(2);
+}
+
+@media (min-width: 700px) {
+  .header {
+    margin-right: 35%;
+    margin-left: 35%;
+    padding-right: 0;
+  }
+}
