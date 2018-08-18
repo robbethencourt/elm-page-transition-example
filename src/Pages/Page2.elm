@@ -1,8 +1,7 @@
 module Pages.Page2 exposing (view)
 
-import Html exposing (Html, div, text, span)
+import Html exposing (Html, div, text, a)
 import Html.Attributes exposing (class)
-import Html.Events exposing (onClick)
 import Route
 
 
@@ -29,9 +28,9 @@ view transition transitionPage =
 header : (Route.Page -> msg) -> Html msg
 header transitionPage =
     div [ class "header" ]
-        [ span
+        [ a
             [ class "btn logout"
-            , onClick <| transitionPage <| Route.Page1 Route.Show
+            , Route.href <| Route.Page1 Route.Show
             ]
             []
         ]
@@ -54,9 +53,9 @@ profileNav transitionPage =
             ]
         , div [ class "bucket" ]
             [ div [ class "heading" ] []
-            , div
+            , a
                 [ class "btn content"
-                , onClick <| transitionPage <| Route.Page3 Route.Show
+                , Route.href <| Route.Page3 Route.Show
                 ]
                 []
             ]

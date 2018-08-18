@@ -2,7 +2,6 @@ module Pages.Page3 exposing (view)
 
 import Html exposing (Html, div, text, span)
 import Html.Attributes exposing (class)
-import Html.Events exposing (onClick)
 import Route
 
 
@@ -33,7 +32,7 @@ header transitionPage =
     div [ class "header" ]
         [ span
             [ class "btn logout"
-            , onClick <| transitionPage <| Route.Page1 Route.Show
+            , Route.href <| Route.Page1 Route.Show
             ]
             []
         ]
