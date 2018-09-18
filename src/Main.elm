@@ -15,15 +15,9 @@ type alias Model =
     Route.Page
 
 
-
--- refresh
--- what about refresh
--- need a solution for refresh
-
-
 init : Navigation.Location -> ( Model, Cmd Msg )
 init location =
-    ( Route.Page1 Route.Show, Cmd.none )
+    ( Route.locationToPage location, Cmd.none )
 
 
 

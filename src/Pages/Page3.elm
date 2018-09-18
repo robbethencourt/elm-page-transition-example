@@ -1,6 +1,6 @@
 module Pages.Page3 exposing (view)
 
-import Html exposing (Html, div, text, span)
+import Html exposing (Html, div, text, a)
 import Html.Attributes exposing (class)
 import Route
 
@@ -30,7 +30,7 @@ view transition transitionPage =
 header : (Route.Page -> msg) -> Html msg
 header transitionPage =
     div [ class "header" ]
-        [ span
+        [ a
             [ class "btn logout"
             , Route.href <| Route.Page1 Route.Show
             ]
