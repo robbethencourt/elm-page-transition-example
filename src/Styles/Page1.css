@@ -12,6 +12,7 @@
 }
 
 .btn {
+  display: block;
   background-color: var(--action-color);
 }
 

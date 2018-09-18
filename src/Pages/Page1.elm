@@ -1,8 +1,7 @@
 module Pages.Page1 exposing (view)
 
-import Html exposing (Html, div, text)
+import Html exposing (Html, div, a, text)
 import Html.Attributes exposing (class)
-import Html.Events exposing (onClick)
 import Route
 
 
@@ -15,9 +14,9 @@ view transition transitionPage =
         div [ class <| "login-container " ++ transitionClassName ]
             [ div [ class "username" ] []
             , div [ class "password" ] []
-            , div
+            , a
                 [ class "btn login"
-                , onClick <| transitionPage <| Route.Page2 Route.Show
+                , Route.href <| Route.Page2 Route.Show
                 ]
                 []
             ]

@@ -5,6 +5,7 @@ import Route
 import Pages.Page1 as Page1
 import Pages.Page2 as Page2
 import Pages.Page3 as Page3
+import Navigation exposing (Location)
 
 
 -- MODEL
@@ -14,9 +15,9 @@ type alias Model =
     Route.Page
 
 
-init : ( Model, Cmd Msg )
-init =
-    ( Route.Page1 Route.Show, Cmd.none )
+init : Navigation.Location -> ( Model, Cmd Msg )
+init location =
+    ( Route.locationToPage location, Cmd.none )
 
 
 
@@ -78,7 +79,7 @@ subscriptions model =
 
 main : Program Never Model Msg
 main =
-    program
+    Navigation.program (Route.locationToPage >> TransitionPage)
         { init = init
         , view = view
         , update = update

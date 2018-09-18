@@ -1,6 +1,17 @@
-var _user$project$Route$pageTransitionTime = function (page) {
+var _user$project$Route$pageToHash = function (page) {
 	var _p0 = page;
 	switch (_p0.ctor) {
+		case 'Page1':
+			return '/#page1';
+		case 'Page2':
+			return '/#page2';
+		default:
+			return '#/page3';
+	}
+};
+var _user$project$Route$pageTransitionTime = function (page) {
+	var _p1 = page;
+	switch (_p1.ctor) {
 		case 'Page1':
 			return 650;
 		case 'Page2':
@@ -9,16 +20,20 @@ var _user$project$Route$pageTransitionTime = function (page) {
 			return 250;
 	}
 };
+var _user$project$Route$href = function (page) {
+	return _elm_lang$html$Html_Attributes$href(
+		_user$project$Route$pageToHash(page));
+};
 var _user$project$Route$transitionFromPage = F2(
 	function (page, msg) {
-		var time = function (_p1) {
+		var time = function (_p2) {
 			return A2(
 				F2(
 					function (x, y) {
 						return x * y;
 					}),
 				_elm_lang$core$Time$millisecond,
-				_user$project$Route$pageTransitionTime(_p1));
+				_user$project$Route$pageTransitionTime(_p2));
 		}(page);
 		return A2(
 			_elm_lang$core$Task$perform,
@@ -41,24 +56,55 @@ var _user$project$Route$Page1 = function (a) {
 var _user$project$Route$Remove = {ctor: 'Remove'};
 var _user$project$Route$Show = {ctor: 'Show'};
 var _user$project$Route$toggleTransition = function (transition) {
-	var _p2 = transition;
-	if (_p2.ctor === 'Show') {
+	var _p3 = transition;
+	if (_p3.ctor === 'Show') {
 		return _user$project$Route$Remove;
 	} else {
 		return _user$project$Route$Show;
 	}
 };
 var _user$project$Route$updatePageTransition = function (page) {
-	var _p3 = page;
-	switch (_p3.ctor) {
+	var _p4 = page;
+	switch (_p4.ctor) {
 		case 'Page1':
 			return _user$project$Route$Page1(
-				_user$project$Route$toggleTransition(_p3._0));
+				_user$project$Route$toggleTransition(_p4._0));
 		case 'Page2':
 			return _user$project$Route$Page2(
-				_user$project$Route$toggleTransition(_p3._0));
+				_user$project$Route$toggleTransition(_p4._0));
 		default:
 			return _user$project$Route$Page3(
-				_user$project$Route$toggleTransition(_p3._0));
+				_user$project$Route$toggleTransition(_p4._0));
+	}
+};
+var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
+	{
+		ctor: '::',
+		_0: A2(
+			_evancz$url_parser$UrlParser$map,
+			_user$project$Route$Page1(_user$project$Route$Show),
+			_evancz$url_parser$UrlParser$s('page1')),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_evancz$url_parser$UrlParser$map,
+				_user$project$Route$Page2(_user$project$Route$Show),
+				_evancz$url_parser$UrlParser$s('page2')),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_evancz$url_parser$UrlParser$map,
+					_user$project$Route$Page3(_user$project$Route$Show),
+					_evancz$url_parser$UrlParser$s('page3')),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Route$locationToPage = function (location) {
+	var _p5 = A2(_evancz$url_parser$UrlParser$parseHash, _user$project$Route$route, location);
+	if (_p5.ctor === 'Nothing') {
+		return _user$project$Route$Page1(_user$project$Route$Show);
+	} else {
+		return _p5._0;
 	}
 };
