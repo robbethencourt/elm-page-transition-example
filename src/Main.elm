@@ -56,10 +56,10 @@ view model =
             Route.Page1 transition ->
                 Page1.view transition TransitionPage
 
-            Route.Page2 transition ->
+            Route.Page2 transition userID ->
                 Page2.view transition TransitionPage
 
-            Route.Page3 transition ->
+            Route.Page3 transition userID ->
                 Page3.view transition TransitionPage
         ]
 

@@ -4,9 +4,15 @@ var _user$project$Route$pageToHash = function (page) {
 		case 'Page1':
 			return '/#page1';
 		case 'Page2':
-			return '/#page2';
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'/#page2/',
+				_elm_lang$core$Basics$toString(_p0._1));
 		default:
-			return '#/page3';
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'#/page3/',
+				_elm_lang$core$Basics$toString(_p0._1));
 	}
 };
 var _user$project$Route$pageTransitionTime = function (page) {
@@ -44,12 +50,14 @@ var _user$project$Route$transitionFromPage = F2(
 					_elm_lang$core$Task$succeed(msg)),
 				_elm_lang$core$Process$sleep(time)));
 	});
-var _user$project$Route$Page3 = function (a) {
-	return {ctor: 'Page3', _0: a};
-};
-var _user$project$Route$Page2 = function (a) {
-	return {ctor: 'Page2', _0: a};
-};
+var _user$project$Route$Page3 = F2(
+	function (a, b) {
+		return {ctor: 'Page3', _0: a, _1: b};
+	});
+var _user$project$Route$Page2 = F2(
+	function (a, b) {
+		return {ctor: 'Page2', _0: a, _1: b};
+	});
 var _user$project$Route$Page1 = function (a) {
 	return {ctor: 'Page1', _0: a};
 };
@@ -70,11 +78,15 @@ var _user$project$Route$updatePageTransition = function (page) {
 			return _user$project$Route$Page1(
 				_user$project$Route$toggleTransition(_p4._0));
 		case 'Page2':
-			return _user$project$Route$Page2(
-				_user$project$Route$toggleTransition(_p4._0));
+			return A2(
+				_user$project$Route$Page2,
+				_user$project$Route$toggleTransition(_p4._0),
+				_p4._1);
 		default:
-			return _user$project$Route$Page3(
-				_user$project$Route$toggleTransition(_p4._0));
+			return A2(
+				_user$project$Route$Page3,
+				_user$project$Route$toggleTransition(_p4._0),
+				_p4._1);
 	}
 };
 var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
@@ -89,13 +101,19 @@ var _user$project$Route$route = _evancz$url_parser$UrlParser$oneOf(
 			_0: A2(
 				_evancz$url_parser$UrlParser$map,
 				_user$project$Route$Page2(_user$project$Route$Show),
-				_evancz$url_parser$UrlParser$s('page2')),
+				A2(
+					_evancz$url_parser$UrlParser_ops['</>'],
+					_evancz$url_parser$UrlParser$s('page2'),
+					_evancz$url_parser$UrlParser$int)),
 			_1: {
 				ctor: '::',
 				_0: A2(
 					_evancz$url_parser$UrlParser$map,
 					_user$project$Route$Page3(_user$project$Route$Show),
-					_evancz$url_parser$UrlParser$s('page3')),
+					A2(
+						_evancz$url_parser$UrlParser_ops['</>'],
+						_evancz$url_parser$UrlParser$s('page3'),
+						_evancz$url_parser$UrlParser$int)),
 				_1: {ctor: '[]'}
 			}
 		}
