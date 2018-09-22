@@ -8,8 +8,8 @@ import Route
 -- public
 
 
-view : Route.Transition -> (Route.Page -> msg) -> Html msg
-view transition transitionPage =
+view : Route.Transition -> String -> (Route.Page -> msg) -> Html msg
+view transition userName transitionPage =
     let
         transitionClassName =
             transition |> toString |> String.toLower
@@ -17,7 +17,7 @@ view transition transitionPage =
         div [ class <| "profile-page " ++ transitionClassName ]
             [ header transitionPage
             , profile
-            , profileNav transitionPage
+            , profileNav transitionPage userName
             ]
 
 
@@ -44,8 +44,8 @@ profile =
         ]
 
 
-profileNav : (Route.Page -> msg) -> Html msg
-profileNav transitionPage =
+profileNav : (Route.Page -> msg) -> String -> Html msg
+profileNav transitionPage userName =
     div [ class "profile-nav" ]
         [ div [ class "bucket" ]
             [ div [ class "heading" ] []
@@ -55,7 +55,7 @@ profileNav transitionPage =
             [ div [ class "heading" ] []
             , a
                 [ class "btn content"
-                , Route.href <| Route.Page3 Route.Show
+                , Route.href <| Route.Page3 Route.Show userName
                 ]
                 []
             ]

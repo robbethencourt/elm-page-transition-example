@@ -14,7 +14,7 @@ import Time
 import Html exposing (Attribute)
 import Html.Attributes as Attr
 import Navigation exposing (Location)
-import UrlParser as Url exposing (Parser, oneOf, parseHash)
+import UrlParser as Url exposing (Parser, oneOf, parseHash, (</>))
 
 
 -- public
@@ -22,8 +22,8 @@ import UrlParser as Url exposing (Parser, oneOf, parseHash)
 
 type Page
     = Page1 Transition
-    | Page2 Transition
-    | Page3 Transition
+    | Page2 Transition String
+    | Page3 Transition String
 
 
 type Transition
@@ -48,18 +48,18 @@ updatePageTransition page =
         Page1 transition ->
             Page1 <| toggleTransition transition
 
-        Page2 transition ->
-            Page2 <| toggleTransition transition
+        Page2 transition userID ->
+            Page2 (toggleTransition transition) userID
 
-        Page3 transition ->
-            Page3 <| toggleTransition transition
+        Page3 transition userID ->
+            Page3 (toggleTransition transition) userID
 
 
 locationToPage : Navigation.Location -> Page
 locationToPage location =
     case Url.parseHash route location of
         Nothing ->
-            {--if no page then send user to the login screen
+            {--if no page then send user to the login screen.
                ideally a 404 page, but for this example app we'll just use page 1
             --}
             Page1 Show
@@ -83,10 +83,10 @@ pageTransitionTime page =
         Page1 transition ->
             650
 
-        Page2 transition ->
+        Page2 transition userID ->
             250
 
-        Page3 transition ->
+        Page3 transition userID ->
             250
 
 
@@ -104,8 +104,8 @@ route : Parser (Page -> a) a
 route =
     Url.oneOf
         [ Url.map (Page1 Show) (Url.s "page1")
-        , Url.map (Page2 Show) (Url.s "page2")
-        , Url.map (Page3 Show) (Url.s "page3")
+        , Url.map (Page2 Show) (Url.s "page2" </> Url.string)
+        , Url.map (Page3 Show) (Url.s "page3" </> Url.string)
         ]
 
 
@@ -115,8 +115,8 @@ pageToHash page =
         Page1 transition ->
             "/#page1"
 
-        Page2 transition ->
-            "/#page2"
+        Page2 transition userName ->
+            "/#page2/" ++ userName
 
-        Page3 transition ->
-            "#/page3"
+        Page3 transition userName ->
+            "#/page3/" ++ userName
