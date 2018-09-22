@@ -42,7 +42,7 @@ var _user$project$Main$view = function (model) {
 					case 'Page1':
 						return A2(_user$project$Pages_Page1$view, _p1._0, _user$project$Main$TransitionPage);
 					case 'Page2':
-						return A2(_user$project$Pages_Page2$view, _p1._0, _user$project$Main$TransitionPage);
+						return A3(_user$project$Pages_Page2$view, _p1._0, _p1._1, _user$project$Main$TransitionPage);
 					default:
 						return A2(_user$project$Pages_Page3$view, _p1._0, _user$project$Main$TransitionPage);
 				}

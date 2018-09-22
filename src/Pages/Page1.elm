@@ -16,7 +16,7 @@ view transition transitionPage =
             , div [ class "password" ] []
             , a
                 [ class "btn login"
-                , Route.href <| Route.Page2 Route.Show 555
+                , Route.href <| Route.Page2 Route.Show "authedUser"
                 ]
                 []
             ]

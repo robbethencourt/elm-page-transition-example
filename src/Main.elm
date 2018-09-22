@@ -56,10 +56,11 @@ view model =
             Route.Page1 transition ->
                 Page1.view transition TransitionPage
 
-            Route.Page2 transition userID ->
-                Page2.view transition TransitionPage
+            Route.Page2 transition userName ->
+                Page2.view transition userName TransitionPage
 
-            Route.Page3 transition userID ->
+            -- username not needed for any links in Page 3
+            Route.Page3 transition _ ->
                 Page3.view transition TransitionPage
         ]
 
